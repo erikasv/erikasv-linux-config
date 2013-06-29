@@ -11,6 +11,9 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
+-- Para el monitor de bateria
+local vicious = require("vicious")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -41,7 +44,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "sakura"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -110,7 +113,30 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock("%a %b %d, %H:%M:%S",1)
+
+-- Battery Status
+battwidget = awful.widget.progressbar()
+battwidget:set_width(8)
+battwidget:set_height(9)
+battwidget:set_vertical(true)
+battwidget:set_background_color("#494B4F")
+battwidget:set_border_color("#9EFF9E")
+battwidget:set_color("#FFFFFF")
+vicious.register(battwidget, vicious.widgets.bat, '$2', 120, 'BAT1')
+
+-- Volume Status
+soundWidget = awful.widget.progressbar()
+soundWidget:set_width(11)
+soundWidget:set_height(9)
+soundWidget:set_vertical(true)
+soundWidget:set_color("#0000FF")
+vicious.register(soundWidget, vicious.widgets.volume, '$1', 2, 'Master')
+
+-- Machetazo: para separar los iconos
+img= wibox.widget.textbox()
+img:set_text(" ")
+
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -189,6 +215,10 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(soundWidget)
+    right_layout:add(img)
+    right_layout:add(battwidget)
+    right_layout:add(img)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -221,7 +251,17 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ "Mod1",           }, "Tab",
+        function ()
+            awful.client.focus.byidx( 1)
+            if client.focus then client.focus:raise() end
+        end),
     awful.key({ modkey,           }, "k",
+        function ()
+            awful.client.focus.byidx(-1)
+            if client.focus then client.focus:raise() end
+        end),
+    awful.key({ "Mod1", "Shift"   }, "Tab",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
@@ -260,6 +300,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ "Mod1" },            "F2",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -269,12 +310,29 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    --Para las teclas del volumen (en mi caso Fn + F6, F7 y F8)
+    awful.key({ }, "XF86AudioRaiseVolume", function ()
+              awful.util.spawn("amixer set Master 3%+")
+              vicious.force({soundWidget}) end),
+    awful.key({ }, "XF86AudioLowerVolume", function ()
+              awful.util.spawn("amixer set Master 3%-")
+              vicious.force({soundWidget}) end),
+    awful.key({ }, "XF86AudioMute", function ()
+              awful.util.spawn("amixer sset Master toggle") end),
+    
+    --Para las teclas del brillo (en mi caso Fn + F2 y F3)
+    awful.key({ }, "XF86MonBrightnessDown", function ()
+        awful.util.spawn("xbacklight -dec 10") end),
+    awful.key({ }, "XF86MonBrightnessUp", function ()
+        awful.util.spawn("xbacklight -inc 10") end)
 )
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
+    awful.key({ "Mod1"            }, "F4",      function (c) c:kill()                        end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
