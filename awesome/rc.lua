@@ -11,7 +11,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
--- Para el monitor de bateria
+-- Para widgets
 local vicious = require("vicious")
 
 -- {{{ Error handling
@@ -131,7 +131,12 @@ soundWidget:set_width(11)
 soundWidget:set_height(9)
 soundWidget:set_vertical(true)
 soundWidget:set_color("#0000FF")
-vicious.register(soundWidget, vicious.widgets.volume, '$1', 2, 'Master')
+vicious.register(soundWidget, vicious.widgets.volume,
+		 function(widget, args)
+		 	if args[2] == "♩" then return 0
+		 	else return args[1]
+		 	end
+		 end, 120, 'Master')
 
 -- Machetazo: para separar los iconos
 img= wibox.widget.textbox()
@@ -314,13 +319,14 @@ globalkeys = awful.util.table.join(
 
     --Para las teclas del volumen (en mi caso Fn + F6, F7 y F8)
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-              awful.util.spawn("amixer set Master 3%+")
+              awful.util.spawn("amixer set Master 5+")
               vicious.force({soundWidget}) end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-              awful.util.spawn("amixer set Master 3%-")
+              awful.util.spawn("amixer set Master 5-")
               vicious.force({soundWidget}) end),
     awful.key({ }, "XF86AudioMute", function ()
-              awful.util.spawn("amixer sset Master toggle") end),
+              awful.util.spawn("amixer sset Master toggle") 
+	      vicious.force({soundWidget}) end),
     
     --Para las teclas del brillo (en mi caso Fn + F2 y F3)
     awful.key({ }, "XF86MonBrightnessDown", function ()
@@ -489,3 +495,5 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+awful.util.spawn_with_shell("dropbox start")
