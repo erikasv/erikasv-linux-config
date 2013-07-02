@@ -10,6 +10,8 @@ Awesome:
 - Alt+Tab y Alt+Shift+Tab para cambiar entre ventanas
 - Alt+F2 para ejecutar un comando
 - Consola por defecto:sakura
+ 
+Para que las teclas de brillo fncionen es necesario tener instalado xorg-xbackligh
 - Teclas de sonido (Fn) funcionando
 - Teclas del brillo (Fn) funcionando
 
