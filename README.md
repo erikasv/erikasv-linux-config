@@ -9,6 +9,7 @@ Awesome:
 
 - Alt+Tab y Alt+Shift+Tab para cambiar entre ventanas
 - Alt+F2 para ejecutar un comando
+- Control+Alt+l para ejecutar xlock
 - Consola por defecto:sakura
  
 Para que las teclas de brillo funcionen es necesario tener instalado xorg-xbackligh
