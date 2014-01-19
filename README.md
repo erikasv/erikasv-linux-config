@@ -5,7 +5,7 @@ Algunas configuraciones para mi archlinux.
 
 Awesome:
 --------
-> http://awesome.naquadah.org/
+> <a href="http://awesome.naquadah.org/" target="_blank">http://awesome.naquadah.org/</a>
 
 - Alt+Tab y Alt+Shift+Tab para cambiar entre ventanas
 - Alt+F2 para ejecutar un comando
@@ -17,7 +17,11 @@ Para que las teclas de brillo funcionen es necesario tener instalado xorg-xbackl
 - Teclas del brillo (Fn) funcionando
 
 Para los widgets es necesario instalar vicious:
-> http://awesome.naquadah.org/wiki/Vicious
+> <a href="http://awesome.naquadah.org/wiki/Vicious" target="_blank">http://awesome.naquadah.org/wiki/Vicious</a>
 
 - Widget de bateria
 - Widget de sonido
+
+Zsh:
+----
+Las configuraciones básicas fueron sacadas de la <a href="https://wiki.archlinux.org/index.php/Zsh#.7E.2F.zshrc_configuration" target="_blank">wiki de Arch</a>.
