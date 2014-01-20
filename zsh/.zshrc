@@ -14,7 +14,11 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-#The folllowing lines were added by me :D
+
+
+##The folllowing lines were added by me :D
+##basic stuff from Arch wiki
+
 #To activate a menu arrow-driven (TAB twice)
 zstyle ':completion:*' menu select
 
@@ -27,3 +31,4 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 #Filter past commands, show only the ones beginning with the current input
 [[ -n "${key[Up]}"   ]]  && bindkey  "${key[Up]}" history-beginning-search-backward
 [[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}" history-beginning-search-forward
+
