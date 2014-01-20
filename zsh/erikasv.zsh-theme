@@ -14,7 +14,7 @@ function get_nr_jobs() {
 
 PROMPT='%{$fg[green]%}%n@%m %{$fg[cyan]%}%2c %{$fg[blue]%}$(git_prompt_info)%{$fg[blue]%} %{$fg_bold[magenta]%}➜ % %{$reset_color%}'
 
-RPROMPT='%{$fg[green]%}[$(get_nr_jobs), $(get_RAM)] %{$fg[magenta]%}%*%{$reset_color%}'
+RPROMPT=' %(?.:%).:()%{$fg[green]%}[$(get_nr_jobs), $(get_RAM)] %{$fg[magenta]%}%*%{$reset_color%}'
 
 #ZSH_THEME_HG_PROMPT_PREFIX="hg:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"

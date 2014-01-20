@@ -32,3 +32,7 @@ compinit
 #Filter past commands, show only the ones beginning with the current input
 #[[ -n "${key[Up]}"   ]]  && bindkey  "${key[Up]}" history-beginning-search-backward
 #[[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}" history-beginning-search-forward
+
+#RVM
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
