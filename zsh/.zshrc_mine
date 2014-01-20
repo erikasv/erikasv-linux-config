@@ -1,3 +1,6 @@
+##Load the config made by oh-my-zsh
+source ~/.zshrc_oh-my-zsh
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -6,6 +9,7 @@ setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
+
 
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/erikasv/.zshrc'
@@ -16,19 +20,15 @@ compinit
 
 
 
-##The folllowing lines were added by me :D
-##basic stuff from Arch wiki
+##The folllowing lines were added by me when I was configuring from arch wiki.
+##Commented because oh-my-zsh already include them, not deleted just in case :P
 
 #To activate a menu arrow-driven (TAB twice)
-zstyle ':completion:*' menu select
+#zstyle ':completion:*' menu select
 
 #Make some keys work
-source .zkeybindings
-
-#Search in the official repositories when you enter a command unrecognized.
-source /usr/share/doc/pkgfile/command-not-found.zsh
+#source ~/.zkeybindings
 
 #Filter past commands, show only the ones beginning with the current input
-[[ -n "${key[Up]}"   ]]  && bindkey  "${key[Up]}" history-beginning-search-backward
-[[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}" history-beginning-search-forward
-
+#[[ -n "${key[Up]}"   ]]  && bindkey  "${key[Up]}" history-beginning-search-backward
+#[[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}" history-beginning-search-forward
