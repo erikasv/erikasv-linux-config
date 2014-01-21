@@ -1,29 +1,50 @@
 erikasv-linux-config
 ====================
 
-Algunas configuraciones para mi archlinux (Probadas en un samsung series 5).
+Algunas configuraciones para mi archlinux.
 
 <a href="http://awesome.naquadah.org/" target="_blank">Awesome</a>:
---------
-> Teclas:
+-------------------------------------------------------------------
+> Archivos:
+
+- rc.lua: Tiene toda la configuración.
+
+> Para hacerlo funcionar:
+
+1. Ubicar el archivo rc.lua ```~/.config/awesome/```
+
+> Atajos del teclado:
 
 - Alt+Tab y Alt+Shift+Tab para cambiar entre ventanas
 - Alt+F2 para ejecutar un comando
 - Control+Alt+l para ejecutar xlock
 - Consola por defecto:sakura
- 
-> Para que las teclas de brillo funcionen es necesario tener instalado xorg-xbackligh
 
-- Teclas de sonido (Fn) funcionando
-- Teclas del brillo (Fn) funcionando
+> Teclas de función (Fn) probadas (Samsung series 5):
 
-> Para los widgets es necesario instalar <a href="http://awesome.naquadah.org/wiki/Vicious" target="_blank">vicious</a>:
+Requiere tener instalado xorg-xbackligh.
+- Teclas de sonido
+- Teclas del brillo
+- Bloqueo del touchpad
 
+> Widgets:
+
+Requieren instalar <a href="http://awesome.naquadah.org/wiki/Vicious" target="_blank">vicious</a>.
 - Widget de bateria
 - Widget de sonido
 
-<a href="https://wiki.archlinux.org/index.php/Zsh" target="_blank">Zsh</a>:
+Vim:
 ----
+> Archivos:
+
+- BusyBee_cats.vim: Tema de colores. No recuerdo de donde lo saqué :-/
+
+> Para hacerlo funcionar:
+
+1. Ubicar el archivo BusyBee_cats.vim en ```~/.vim/colors/```
+
+<a href="https://wiki.archlinux.org/index.php/Zsh" target="_blank">Zsh</a>:
+---------------------------------------------------------------------------
 > Archivos:
 
 - .zshrc\_mine: Archivo principal, en donde están las configuraciones hechas con el asistente de configuración de zsh y hace uso de los archivos .zkeybindings y .zshrc_oh-my-zsh.
@@ -33,19 +54,9 @@ Algunas configuraciones para mi archlinux (Probadas en un samsung series 5).
 
 > Para hacerlo funcionar:
 
-1. Clonar oh-my-zsh
-
- ```git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh)```
-
-2. Hacer un enlace simbólico del tema en la carpeta de temas de oh-my-zsh (o copiar el archivo también servirá)
-
- ```ln -s ~/erikasv-linux-config/zsh/erikasv.zsh-theme ~/.oh-my-zsh/themes/.```
-
-3. Hacer enlaces simbólicos para los archivos .zshrc_mine .zkeybindings .zshrc_oh-my-zsh al home (o copiarlos)
-
- ```
- ln -s ~/erikasv-linux-config/zsh/.zshrc_mine ~/.zshrc
- ln -s ~/erikasv-linux-config/zsh/.zkeybindings ~/.
- ln -s ~/erikasv-linux-config/zsh/.zshrc_oh-my-zsh ~/
- ```
+1. Clonar oh-my-zsh: ```git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh```
+2. Ubicar el archivo erikasv.zsh-theme en ```oh-my-zsh/themes/.```
+3. Ubicar el archivo .zshrc\_mine en ```~/.``` con el nombre ```.zshrc```
+4. Ubicar el archivo .zkeybindings en ```~/.```
+5. Ubicar el archivo .zshrc\_oh-my-zsh en ```~/.```
 
