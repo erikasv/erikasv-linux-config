@@ -60,3 +60,4 @@ Vim:
 4. Ubicar el archivo .zkeybindings en ```~/.```
 5. Ubicar el archivo .zshrc\_oh-my-zsh en ```~/.```
 
+Para tener zsh como shell por defecto: ```chsh -s /bin/zsh```
