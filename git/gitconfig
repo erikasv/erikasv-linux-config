@@ -1,8 +1,8 @@
 [core]
 	editor = vim
 [user]
-	name = Andrés Ricardo Torres Martínez
-	email = torresandresricardo@gmail.com
+        name = Erika Suárez Valencia
+        email = marvinesv@gmail.com
 [push]
 	default = simple
 [alias]
