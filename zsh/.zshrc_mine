@@ -34,11 +34,8 @@ compinit
 #[[ -n "${key[Down]}" ]]  && bindkey  "${key[Down]}" history-beginning-search-forward
 
 #RVM
-PATH=/home/erikasv/.rvm/gems/ruby-1.9.2-p320@1.9.2/bin:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
-source "$HOME/.rvm/scripts/rvm"
+#PATH=/home/erikasv/.rvm/gems/ruby-1.9.2-p320@1.9.2/bin:$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+#source "$HOME/.rvm/scripts/rvm"
 
-#VARIABLES PARA EL PROYECTO DE INTELIGENCIA COLECTIVA
-NLHOME=/opt/netlogo-4.0.5/
-NLMODEL=$HOME/Collective-intelligence--Analysis-and-modeling/
-
-
+#sudoedit
+export EDITOR=/usr/bin/vim
