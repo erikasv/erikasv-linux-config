@@ -6,10 +6,10 @@ DIR=$(pwd)
 cd ~
 
 # Awesome
-mkdir -p .config/awesome/
-cd .config/awesome
-ln -s $DIR/awesome/rc.lua .
-cd ~
+# mkdir -p .config/awesome/
+# cd .config/awesome
+# ln -s $DIR/awesome/rc.lua .
+# cd ~
 
 # Git
 ln -s $DIR/git/gitconfig .gitconfig

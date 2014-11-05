@@ -45,7 +45,7 @@ hi PMenuSel guifg=#000000 guibg=#b1d631 guisp=#b1d631 gui=NONE ctermfg=NONE cter
 "hi Search -- no settings --
 "hi CTagsGlobalVariable -- no settings --
 hi Delimiter guifg=#ff9800 guibg=NONE guisp=NONE gui=NONE ctermfg=208 ctermbg=NONE cterm=NONE
-hi Statement guifg=#7e8aa2 guibg=NONE guisp=NONE gui=NONE ctermfg=103 ctermbg=NONE cterm=NONE
+hi Statement guifg=#00bd26 guibg=NONE guisp=NONE gui=NONE ctermfg=103 ctermbg=NONE cterm=NONE
 "hi SpellRare -- no settings --
 "hi EnumerationValue -- no settings --
 hi Comment guifg=#69787d guibg=NONE guisp=NONE gui=italic ctermfg=66 ctermbg=NONE cterm=NONE
