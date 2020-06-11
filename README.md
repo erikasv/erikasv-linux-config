@@ -35,10 +35,16 @@ Vim:
 - .zshrc\_oh-my-zsh: Contiene las configuraciones echas a partir de <a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank">oh-my-zsh</a>.
 - erikasv.zsh-theme: Tema del prompt, tomado de <a href="https://github.com/gurgeh/oh-my-zsh/blob/master/themes/gurgeh.zsh-theme" target="_blank">gurgeh</a> con pequeñas modificaciones.
 
-
 Firefox:
 --------
 - Archivo .desktop para incluir el profile manager en las opciones del icono de la barra de tareas
+
+Alias:
+------
+```
+alias dkps='docker ps --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
+alias dkpsa='docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
+```
 
 Utilidades:
 -----------
